@@ -1,3 +1,3 @@
-function testIfRun(){
+(function (){
     alert("Test if run!");
-};
+})();
