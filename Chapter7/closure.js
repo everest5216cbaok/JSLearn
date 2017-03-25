@@ -31,22 +31,35 @@
 //var result = func(object1, object2);
 //alert(result);
 
-function createFunctions(){
-    var result = new Array();
-    
-    for(var i = 0; i < 10; i++){
-        result[i] = (function(num){
-            return function(){
-                return num;
-            }
-        })(i);
-    }
-    
-    return result;
-}
+//function createFunctions(){
+//    var result = new Array();
+//    
+//    for(var i = 0; i < 10; i++){
+//        result[i] = (function(num){
+//            return function(){
+//                return num;
+//            }
+//        })(i);
+//    }
+//    
+//    return result;
+//}
+//
+//var result = createFunctions();
+//for(var i=5; i<result.length; ++i){
+//    console.log(result[i]());
+//    //alert(result[i]());
+//}
 
-var result = createFunctions();
-for(var i=5; i<result.length; ++i){
-    console.log(result[i]());
-    //alert(result[i]());
-}
+var name = "The Window";
+
+var object = {
+    name : "My Object",
+    getNameFunc : function(){
+        return function(){
+            return this.name;
+        };
+    }
+};
+
+alert(object.getNameFunc()());
