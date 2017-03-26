@@ -55,12 +55,11 @@ var name = "The Window";
 
 var object = {
     name : "My Object",
-    getNameFunc : function(){
-        var that = this;
-        return function(){
-            return that.name;
-        };
+    getName : function(){
+        return this.name;
     }
 };
 
-alert(object.getNameFunc()());
+alert(object.getName());
+alert((object.getName)());
+alert((object.getName = object.getName)());
