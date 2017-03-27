@@ -18,7 +18,7 @@ SubType.prototype.getSubValue = function(){
 }
 
 //override existing method
-SubType.prototype.getSuperType() = function(){
+SubType.prototype.getSuperType = function(){
     return false;
 }
 
@@ -36,3 +36,20 @@ var instance = new SubType();
 //alert(Object.prototype.isPrototypeOf(instance));
 //alert(SuperType.prototype.isPrototypeOf(instance));
 //alert(SubType.prototype.isPrototypeOf(instance));
+
+
+//problems of prototype chain
+function SuperType(){
+    this.colors = ["red", "blue", "green"];
+}
+
+function SubType(){
+}
+
+SubType.prototype = new SuperType();
+
+var instance1 = new SubType();
+instance1.colors.push("black");
+
+var instance2 = new SubType();
+alert(instance2.colors);
