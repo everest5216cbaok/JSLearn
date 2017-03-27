@@ -70,16 +70,50 @@
 //var instance2 = new SubType();
 //alert(instance2.colors);
 
+//function SuperType(name){
+//    this.name = name;
+//}
+//
+//function SubType(){
+//    SuperType.call(this, "Nicholas");
+//    
+//    this.age = 29;
+//}
+//
+//var instance = new SubType();
+//alert(instance.name);
+//alert(instance.age);
+
+
 function SuperType(name){
     this.name = name;
+    this.colors = ["red", "blue", "green"];
 }
 
-function SubType(){
-    SuperType.call(this, "Nicholas");
-    
-    this.age = 29;
+SuperType.prototype.sayName = function(){
+    alert(this.name);
 }
 
-var instance = new SubType();
-alert(instance.name);
-alert(instance.age);
+function SubType(name, age){
+    SuperType.call(this, name);//do--1
+    this.age = age;
+}
+
+//继承方法
+SubType.prototype = new SuperType();//do--2
+SubType.prototype.constructor= SubType;//do--3 need?
+//添加自己的原型方法？那不就是添加SuperType实例的方法么？
+SubType.prototype.sayAge = function(){
+    alert(this.age);
+}
+
+var instance1 = new SubType("Nicholas", 29);
+instance1.colors.push("black");
+alert(instance1.colors);
+instance1.sayName();
+instance1.sayAge();
+
+var instance2 = new SubType("Greg", 27);
+alert(instance2.colors);
+instance2.sayName();
+instance2.sayAge();
