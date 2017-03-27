@@ -17,6 +17,11 @@ SubType.prototype.getSubValue = function(){
     return this.subproperty;
 }
 
+//override existing method
+SubType.prototype.getSuperType() = function(){
+    return false;
+}
+
 var instance = new SubType();
 //alert(instance.getSuperValue());
 //
@@ -24,10 +29,10 @@ var instance = new SubType();
 //SuperType();
 //alert(property);
 
-alert(instance instanceof Object);
-alert(instance instanceof SuperType);
-alert(instance instanceof SubType);
-
-alert(Object.prototype.isPrototypeOf(instance));
-alert(SuperType.prototype.isPrototypeOf(instance));
-alert(SubType.prototype.isPrototypeOf(instance));
+//alert(instance instanceof Object);
+//alert(instance instanceof SuperType);
+//alert(instance instanceof SubType);
+//
+//alert(Object.prototype.isPrototypeOf(instance));
+//alert(SuperType.prototype.isPrototypeOf(instance));
+//alert(SubType.prototype.isPrototypeOf(instance));
