@@ -18,8 +18,16 @@ SubType.prototype.getSubValue = function(){
 }
 
 var instance = new SubType();
-alert(instance.getSuperValue());
+//alert(instance.getSuperValue());
+//
+//var property = false;
+//SuperType();
+//alert(property);
 
-var property = false;
-SuperType();
-alert(property);
+alert(instance instanceof Object);
+alert(instance instanceof SuperType);
+alert(instance instanceof SubType);
+
+alert(Object.prototype.isPrototypeOf(instance));
+alert(SuperType.prototype.isPrototypeOf(instance));
+alert(SubType.prototype.isPrototypeOf(instance));
