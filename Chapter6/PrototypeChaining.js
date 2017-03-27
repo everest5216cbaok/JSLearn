@@ -54,19 +54,32 @@
 ////var instance2 = new SubType();
 ////alert(instance2.colors);
 
-function SuperType(){
-    this.colors = ["red", "blue", "green"];
+//function SuperType(){
+//    this.colors = ["red", "blue", "green"];
+//}
+//
+//function SubType(){
+//    //继承了SuperType
+//    SuperType.call(this);
+//}
+//
+//var instance1 = new SubType();
+//instance1.colors.push("black");
+//alert(instance1.colors);
+//
+//var instance2 = new SubType();
+//alert(instance2.colors);
+
+function SuperType(name){
+    this.name = name;
 }
 
 function SubType(){
-    //继承了SuperType
-    SuperType.call(this);
+    SuperType.call(this, "Nicholas");
+    
+    this.age = 29;
 }
 
-var instance1 = new SubType();
-instance1.colors.push("black");
-alert(instance1.colors);
-
-var instance2 = new SubType();
-alert(instance2.colors);
-
+var instance = new SubType();
+alert(instance.name);
+alert(instance.age);
